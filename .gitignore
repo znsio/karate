@@ -19,10 +19,10 @@ karate-demo/activemq-data/
 karate-demo/*.pem
 karate-demo/*.jks
 karate-demo/*.der
+karate-demo/perfiz/*_data
 karate-core/*.pem
 karate-core/*.jks
 karate-core/*.der
 karate-robot/tessdata
 karate-junit4/src/test/java/com/intuit/karate/junit4/dev
 karate-robot/src/test/java/robot/dev
-

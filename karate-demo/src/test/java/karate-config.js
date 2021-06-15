@@ -1,13 +1,17 @@
 function fn() {
   karate.configure('connectTimeout', 5000);
-  karate.configure('readTimeout', 5000);  
+  karate.configure('readTimeout', 5000);
   var port = karate.properties['demo.server.port'] || '8080';
   var protocol = 'http';
   if (karate.properties['demo.server.https'] === 'true') {
     protocol = 'https';
     karate.configure('ssl', true);
-  }  
-  var config = { demoBaseUrl: protocol + '://127.0.0.1:' + port };
+  }
+  var host = '127.0.0.1';
+  if (karate.env == 'perfiz') {
+    host = 'host.docker.internal'
+  }
+  var config = { demoBaseUrl: protocol + '://' + host + ':' + port };
   if (karate.env !== 'mock') {
     // karate.configure('callSingleCache', { minutes: 1 });
     // 'callSingle' is guaranteed to run only once even across all threads
